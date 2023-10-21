@@ -1,8 +1,15 @@
 {
   "name": "bookmarks.html",
+  "description": "A portable, shareable bookmarks file.",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
+  "author": "Hilverd Reker",
+  "bugs": {
+    "url": "https://github.com/hilverd/bookmarks.html/issues"
+  },
+  "homepage": "https://github.com/hilverd/bookmarks.html",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
