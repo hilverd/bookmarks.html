@@ -41,7 +41,7 @@ function forestPaths(forest) {
 }
 
 function forestFromPreElement() {
-    const forestText = document.getElementById('forestText').innerText.trim();
+    const forestText = document.getElementById('bookmarks').innerText.trim();
     return forestFromText(forestText);
 }
 
