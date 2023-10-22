@@ -17,4 +17,4 @@ fail() {
 
 cd "$SCRIPT_DIR/.."
 mkdir -p release
-cp index.html release/bookmarks.html
+cp dist/index.html release/bookmarks.html
