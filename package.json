@@ -2,7 +2,7 @@
   "name": "bookmarks.html",
   "description": "A portable, shareable bookmarks file.",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "author": "Hilverd Reker",
   "bugs": {

@@ -63,7 +63,7 @@ document.addEventListener('alpine:init', () => {
     const paths = forestPaths(forest);
 
     Alpine.data('bookmarks', () => ({
-        version: '0.0.1',
+        version: '0.0.2',
         xHtmlForForest: forest.map((tree) => `<ul>${xHtmlForTree(tree)}</ul>`),
         searchString: '',
         activeSearchResultIndex: 0,
