@@ -35,13 +35,13 @@
                                         <a :href="path.href" class="overflow-x-hidden">
                                             <div class="flex-auto">
                                                 <p>
-                                                <template x-for="(name, nameIndex) in path.names">
+                                                  <template x-for="(name, nameIndex) in path.names">
                                                     <span>
                                                       <span x-show="nameIndex !== 0" class="mx-1 text-gray-400"> → </span>
                                                       <span x-text="name" class="font-medium text-gray-700"></span>
                                                     </span>
-                                                </template>
-                                            </p>
+                                                  </template>
+                                                </p>
 
                                                 <p class="text-sm truncate" :class="activeSearchResultIndex === index ? 'text-gray-700' : 'text-gray-500'" x-text="path.href.replace('https://', '').replace('http://', '').replace(/\/$/, '')"></p>
                                             </div>
@@ -58,8 +58,9 @@
                                 <p class="mt-2 text-gray-500">No bookmarks found for this search term. Please try again.</p>
                             </div>
 
-                            <div class="flex flex-wrap items-center bg-gray-50 px-4 py-2.5 text-xs text-gray-700">Tip:
-                                use spaces to narrow down results by folders.</div>
+                            <div class="flex flex-wrap items-center bg-gray-50 px-4 py-2.5 text-xs text-gray-700">
+                                Tip: use spaces to narrow down results by folders.
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -80,12 +81,32 @@
     </footer>
 
     <pre id="bookmarks" class="hidden">
-Foo
-  Bar: https://github.com/hilverd/bar
-  Baz: https://github.com/hilverd/baz
-Second
-  Third
-    Fourth: https://example.com
+Search Engines
+  Google: https://www.google.com/
+  Bing: https://www.bing.com/
+  Baidu: https://www.baidu.com/
+Social Media
+  Facebook: https://www.facebook.com/
+  Instagram: https://www.instagram.com/
+  WhatsApp: https://www.whatsapp.com/
+  Reddit: https://www.reddit.com/
+  LinkedIn: https://www.linkedin.com/
+Travel
+  Maps
+    Google Maps: https://www.google.com/maps
+    Bing Maps: https://www.bing.com/maps
+  Reviews
+    Tripadvisor: https://www.tripadvisor.com/
+  Airbnb: https://www.airbnb.com/
+Streaming & Online TV
+  YouTube: https://www.youtube.com/
+  Netflix: https://www.netflix.com/
+Reference Materials
+  Wikipedia: https://www.wikipedia.org/
+  Quora: https://www.quora.com/
+Shopping
+  Amazon: https://www.amazon.com/
+  eBay: https://www.ebay.com/
     </pre>
 </body>
 
