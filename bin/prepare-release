@@ -1,0 +1,20 @@
+#! /usr/bin/env bash
+#
+# Prepares files to be released.
+
+set -eo pipefail
+
+readonly SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
+
+log() {
+  echo >&2 "$@"
+}
+
+fail() {
+  echo >&2 "$@"
+  exit 1
+}
+
+cd "$SCRIPT_DIR/.."
+mkdir -p release
+cp index.html release/bookmarks.html
