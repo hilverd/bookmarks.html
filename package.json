@@ -21,6 +21,7 @@
     "alpinejs": "^3.13.2",
     "autoprefixer": "^10.4.16",
     "postcss": "^8.4.31",
+    "scroll-into-view-if-needed": "^3.1.0",
     "tailwindcss": "^3.3.3",
     "vite": "^4.4.5",
     "vite-plugin-singlefile": "^0.13.5"

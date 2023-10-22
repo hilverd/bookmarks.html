@@ -1,3 +1,5 @@
+import scrollIntoView from 'scroll-into-view-if-needed'
+
 function forestFromText(data) {
     let res = [], levels = [res];
     for (let line of data.split('\n')) {
@@ -76,6 +78,31 @@ document.addEventListener('alpine:init', () => {
                 searchStringParts.every((searchStringPart) => path.names.some((name) => name.toLowerCase().includes(searchStringPart))) ||
                 path.href.toLowerCase().includes(normalisedSearchString)
             );
+        },
+
+        makeNextSearchResultActive() {
+            this.activeSearchResultIndex = Math.min(this.activeSearchResultIndex + 1, this.search().length - 1);
+
+            const searchResultElem = document.getElementById('search-result-' + this.activeSearchResultIndex);
+
+            if (searchResultElem)
+                scrollIntoView(searchResultElem, {
+                    scrollMode: 'if-needed',
+                    block: 'nearest',
+                    inline: 'nearest',
+                });
+        },
+
+        makePreviousSearchResultActive() {
+            this.activeSearchResultIndex = Math.max(this.activeSearchResultIndex - 1, 0);
+            const searchResultElem = document.getElementById('search-result-' + this.activeSearchResultIndex);
+
+            if (searchResultElem)
+                scrollIntoView(searchResultElem, {
+                    scrollMode: 'if-needed',
+                    block: 'nearest',
+                    inline: 'nearest',
+                });
         }
     }))
 })
