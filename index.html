@@ -10,40 +10,40 @@
     <script type="module" src="/application.js"></script>
 </head>
 
-<body class="h-full">
+<body class="h-full bg-gray-50 dark:bg-gray-950">
     <div class="min-h-full mx-auto px-4 sm:px-6 lg:px-8 pb-10">
         <div class="pt-4">
             <header>
                 <div>
-                    <h1 class="text-3xl font-bold leading-tight tracking-tight text-gray-900">Bookmarks</h1>
+                    <h1 class="text-3xl font-bold leading-tight tracking-tight text-gray-900 dark:text-gray-100">Bookmarks</h1>
                 </div>
             </header>
             <main class="mt-3" x-data="bookmarks">
                 <div class="static pb-28">
                     <div class="absolute mt-2" @click.outside="searchString = ''; activeSearchResultIndex = 0">
-                        <div style="width: 90vw;" class="max-w-3xl transform divide-y divide-gray-100 overflow-hidden rounded-xl bg-white shadow-md ring-1 ring-black ring-opacity-5">
+                        <div style="width: 90vw;" class="max-w-3xl transform divide-y divide-gray-200 dark:divide-gray-700 overflow-hidden rounded-xl bg-gray-50 dark:bg-gray-950 shadow-md ring-1 ring-gray-950 dark:ring-gray-500 ring-opacity-5">
                             <div class="relative">
-                                <svg class="pointer-events-none absolute left-4 top-3.5 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <svg class="pointer-events-none absolute left-4 top-3.5 h-5 w-5 text-gray-400 dark:text-gray-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                     <path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clip-rule="evenodd" />
                                 </svg>
-                                <input type="text" id="search-string" autocomplete="false" autofocus x-model="searchString" class="h-12 w-full border-0 bg-transparent pl-11 pr-4 text-gray-900 placeholder:text-gray-400 focus:ring-0" placeholder="Search..." @keydown.down.prevent="activeSearchResultIndex = Math.min(activeSearchResultIndex + 1, search().length - 1); document.getElementById('search-result-' + activeSearchResultIndex)?.scrollIntoView({ block: 'nearest' })" @keydown.up.prevent="activeSearchResultIndex = Math.max(activeSearchResultIndex - 1, 0); document.getElementById('search-result-' + activeSearchResultIndex)?.scrollIntoView({ block: 'nearest' })" @keydown.enter.prevent="window.open(search()[activeSearchResultIndex].href, '_self')" @keydown.escape.prevent="searchString = ''; activeSearchResultIndex = 0" @keypress="activeSearchResultIndex = 0">
+                                <input type="text" id="search-string" autocomplete="false" autofocus x-model="searchString" class="h-12 w-full border-0 bg-transparent pl-11 pr-4 text-gray-900 dark:text-gray-100 placeholder:text-gray-500 darkLplaceholder:text-gray-500 focus:ring-0" placeholder="Search..." @keydown.down.prevent="activeSearchResultIndex = Math.min(activeSearchResultIndex + 1, search().length - 1); document.getElementById('search-result-' + activeSearchResultIndex)?.scrollIntoView({ block: 'nearest' })" @keydown.up.prevent="activeSearchResultIndex = Math.max(activeSearchResultIndex - 1, 0); document.getElementById('search-result-' + activeSearchResultIndex)?.scrollIntoView({ block: 'nearest' })" @keydown.enter.prevent="window.open(search()[activeSearchResultIndex].href, '_self')" @keydown.escape.prevent="searchString = ''; activeSearchResultIndex = 0" @keypress="activeSearchResultIndex = 0">
                             </div>
 
                             <ul :class="search().length === 0 ? 'hidden' : ''" class="max-h-96 scroll-py-3 overflow-y-auto p-3" id="options" role="listbox">
                                 <template x-for="(path, index) in search()">
-                                    <li class="group flex cursor-default select-none rounded-xl p-3" :class="activeSearchResultIndex === index ? 'bg-gray-100' : ''" role="option" tabindex="-1" :id="'search-result-' + index" @mouseenter="activeSearchResultIndex = index">
+                                    <li class="group flex cursor-default select-none rounded-xl p-3" :class="activeSearchResultIndex === index ? 'bg-gray-200 dark:bg-gray-800' : ''" role="option" tabindex="-1" :id="'search-result-' + index" @mouseenter="activeSearchResultIndex = index">
                                         <a :href="path.href" class="overflow-x-hidden">
                                             <div class="flex-auto">
                                                 <p>
                                                   <template x-for="(name, nameIndex) in path.names">
                                                     <span>
-                                                      <span x-show="nameIndex !== 0" class="mx-1 text-gray-400"> → </span>
-                                                      <span x-text="name" class="font-medium text-gray-700"></span>
+                                                      <span x-show="nameIndex !== 0" class="mx-1 text-gray-400 dark:text-gray-600"> → </span>
+                                                      <span x-text="name" class="font-medium text-gray-700 dark:text-gray-300"></span>
                                                     </span>
                                                   </template>
                                                 </p>
 
-                                                <p class="text-sm truncate" :class="activeSearchResultIndex === index ? 'text-gray-700' : 'text-gray-500'" x-text="path.href.replace('https://', '').replace('http://', '').replace(/\/$/, '')"></p>
+                                                <p class="text-sm truncate" :class="activeSearchResultIndex === index ? 'text-gray-700 dark:text-gray-300' : 'text-gray-500'" x-text="path.href.replace('https://', '').replace('http://', '').replace(/\/$/, '')"></p>
                                             </div>
                                         </a>
                                     </li>
@@ -51,21 +51,21 @@
                             </ul>
 
                             <div x-show="searchString.trim() !== '' && search().length === 0" class="px-6 py-14 text-center sm:px-14">
-                                <svg class="mx-auto h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                                <svg class="mx-auto h-6 w-6 text-gray-400 dark:text-gray-600" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
                                 </svg>
-                                <p class="mt-4 font-semibold text-gray-900">No results found</p>
+                                <p class="mt-4 font-semibold text-gray-900 dark:text-gray-100">No results found</p>
                                 <p class="mt-2 text-gray-500">No bookmarks found for this search term. Please try again.</p>
                             </div>
 
-                            <div class="flex flex-wrap items-center bg-gray-50 px-4 py-2.5 text-xs text-gray-700">
+                            <div class="flex flex-wrap items-center bg-gray-50 dark:bg-gray-950 px-4 py-2.5 text-xs text-gray-700 dark:text-gray-300">
                                 Tip: use spaces to narrow down results by folders.
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="-ml-2 flex flex-wrap prose max-w-none prose-li:my-0 prose-ul:my-0 prose-a:no-underline hover:prose-a:underline prose-a:text-indigo-600 prose-a:font-normal">
+                <div class="-ml-2 flex flex-wrap prose max-w-none prose-li:my-0 prose-ul:my-0 prose-a:no-underline hover:prose-a:underline prose-a:text-indigo-600 dark:prose-a:text-blue-500 prose-a:font-normal">
                     <template x-for="tree in xHtmlForForest">
                         <div class="mt-3 mr-6" x-html="tree"></div>
                     </template>
